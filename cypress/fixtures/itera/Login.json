@@ -1,0 +1,12 @@
+{
+    "text_login" : " LOGIN",
+    "text_dashboard" : "Dashboard",
+    "title_welcome" : "Welcome ",
+    "title_customer_details" : "Customer Details",
+    "title_wrong_username" : "Wrong username or password",
+    "title_blank_password" : "Please enter password",
+    "title_blank_username" : "Please enter username",
+    "url_dashboard" : "https://itera-qa.azurewebsites.net/Dashboard",
+    "url_gagal_login" : "https://itera-qa.azurewebsites.net/Login/Authorize",
+    "url_login" : "https://itera-qa.azurewebsites.net/Login"
+}

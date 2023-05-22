@@ -1,0 +1,110 @@
+/// <reference types="cypress" />
+import registerPage from "../../support/PageObject/itera/SignUp"
+const dataSignUp = require('../../fixtures/itera/SignUp.json')
+
+describe('Sign Up Case', () => {
+    const RegisterPage = new registerPage()
+    beforeEach(() => {
+        cy.visit("/")
+        cy.get('.form-inline > .navbar-nav > :nth-child(1) > .nav-link').click()
+    })
+
+    it('SignUp Success Case', () => {
+        cy.ketik(RegisterPage.form_firstname, dataSignUp.firstname)
+        cy.ketik(RegisterPage.form_lastname, dataSignUp.lastname)
+        cy.ketik(RegisterPage.form_e_post, dataSignUp.email)
+        cy.ketik(RegisterPage.form_mobile_phone, dataSignUp.mobile_phone)
+        cy.ketik(RegisterPage.form_username, dataSignUp.username_valid)
+        cy.ketik(RegisterPage.form_password, dataSignUp.password_valid)
+        cy.ketik(RegisterPage.form_confirm_password, dataSignUp.confirm_password_valid)
+        cy.klik(RegisterPage.btn_register)
+        cy.get(RegisterPage.alert_success).should('have.text', dataSignUp.msg_success_register)
+        cy.url().should('eq', dataSignUp.url_success_register)
+    })
+
+    it('SignUp Failed Username already exist', () => {
+        cy.ketik(RegisterPage.form_firstname, dataSignUp.firstname)
+        cy.ketik(RegisterPage.form_lastname, dataSignUp.lastname)
+        cy.ketik(RegisterPage.form_e_post, dataSignUp.email)
+        cy.ketik(RegisterPage.form_mobile_phone, dataSignUp.mobile_phone)
+        cy.ketik(RegisterPage.form_username, dataSignUp.username_valid)
+        cy.ketik(RegisterPage.form_password, dataSignUp.password_valid)
+        cy.ketik(RegisterPage.form_confirm_password, dataSignUp.confirm_password_valid)
+        cy.klik(RegisterPage.btn_register)
+        cy.get(RegisterPage.alert_username_already_exist).should('have.text', dataSignUp.msg_username_already_exist)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+
+    it('SignUp Failed Confirm password and Password do not match', () => {
+        cy.get(RegisterPage.form_firstname).should('be.visible').type(dataSignUp.firstname)
+        cy.get(RegisterPage.form_lastname).should('be.visible').type(dataSignUp.lastname)
+        cy.get(RegisterPage.form_e_post).should('be.visible').type(dataSignUp.email)
+        cy.get(RegisterPage.form_mobile_phone).should('be.visible').type(dataSignUp.mobile_phone)
+        cy.get(RegisterPage.form_username).should('be.visible').type(dataSignUp.username_valid)
+        cy.get(RegisterPage.form_password).should('be.visible').type(dataSignUp.password_valid)
+        cy.get(RegisterPage.form_confirm_password).should('be.visible').type(dataSignUp.confirm_password_invalid)
+        cy.get(RegisterPage.btn_register).should('be.visible').click()
+        cy.get(RegisterPage.alert_password_do_not_match).should('have.text', dataSignUp.msg_password_do_not_match)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+
+    it('SignUp Failed FirstName is blank', () => {
+        cy.get(RegisterPage.form_lastname).should('be.visible').type(dataSignUp.lastname)
+        cy.get(RegisterPage.form_e_post).should('be.visible').type(dataSignUp.email)
+        cy.get(RegisterPage.form_mobile_phone).should('be.visible').type(dataSignUp.mobile_phone)
+        cy.get(RegisterPage.form_username).should('be.visible').type(dataSignUp.username_valid)
+        cy.get(RegisterPage.form_password).should('be.visible').type(dataSignUp.password_valid)
+        cy.get(RegisterPage.form_confirm_password).should('be.visible').type(dataSignUp.confirm_password_valid)
+        cy.get(RegisterPage.btn_register).should('be.visible').click()
+        cy.get(RegisterPage.alert_first_name_blank).should('have.text', dataSignUp.msg_firstname_blank)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+
+    it('SignUp Failed LastName is blank', () => {
+        cy.get(RegisterPage.form_firstname).should('be.visible').type(dataSignUp.firstname)
+        cy.get(RegisterPage.form_e_post).should('be.visible').type(dataSignUp.email)
+        cy.get(RegisterPage.form_mobile_phone).should('be.visible').type(dataSignUp.mobile_phone)
+        cy.get(RegisterPage.form_username).should('be.visible').type(dataSignUp.username_valid)
+        cy.get(RegisterPage.form_password).should('be.visible').type(dataSignUp.password_valid)
+        cy.get(RegisterPage.form_confirm_password).should('be.visible').type(dataSignUp.confirm_password_valid)
+        cy.get(RegisterPage.btn_register).should('be.visible').click()
+        cy.get(RegisterPage.alert_last_name_blank).should('have.text', dataSignUp.msg_lastname_blank)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+
+    it('SignUp Failed Username is blank', () => {
+        cy.get(RegisterPage.form_firstname).should('be.visible').type(dataSignUp.firstname)
+        cy.get(RegisterPage.form_lastname).should('be.visible').type(dataSignUp.lastname)
+        cy.get(RegisterPage.form_e_post).should('be.visible').type(dataSignUp.email)
+        cy.get(RegisterPage.form_mobile_phone).should('be.visible').type(dataSignUp.mobile_phone)
+        cy.get(RegisterPage.form_password).should('be.visible').type(dataSignUp.password_valid)
+        cy.get(RegisterPage.form_confirm_password).should('be.visible').type(dataSignUp.confirm_password_valid)
+        cy.get(RegisterPage.btn_register).should('be.visible').click()
+        cy.get(RegisterPage.alert_username_blank).should('have.text', dataSignUp.msg_username_blank)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+
+    it('SignUp Failed Password is blank', () => {
+        cy.get(RegisterPage.form_firstname).should('be.visible').type(dataSignUp.firstname)
+        cy.get(RegisterPage.form_lastname).should('be.visible').type(dataSignUp.lastname)
+        cy.get(RegisterPage.form_e_post).should('be.visible').type(dataSignUp.email)
+        cy.get(RegisterPage.form_mobile_phone).should('be.visible').type(dataSignUp.mobile_phone)
+        cy.get(RegisterPage.form_username).should('be.visible').type(dataSignUp.username_valid)
+        cy.get(RegisterPage.form_confirm_password).should('be.visible').type(dataSignUp.confirm_password_valid)
+        cy.get(RegisterPage.btn_register).should('be.visible').click()
+        cy.get(RegisterPage.alert_password_blank).should('have.text', dataSignUp.msg_password_do_not_match)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+
+    it('SignUp Failed Confirm Password is blank', () => {
+        cy.get(RegisterPage.form_firstname).should('be.visible').type(dataSignUp.firstname)
+        cy.get(RegisterPage.form_lastname).should('be.visible').type(dataSignUp.lastname)
+        cy.get(RegisterPage.form_e_post).should('be.visible').type(dataSignUp.email)
+        cy.get(RegisterPage.form_mobile_phone).should('be.visible').type(dataSignUp.mobile_phone)
+        cy.get(RegisterPage.form_username).should('be.visible').type(dataSignUp.username_valid)
+        cy.get(RegisterPage.form_password).should('be.visible').type(dataSignUp.password_valid)
+        cy.get(RegisterPage.btn_register).should('be.visible').click()
+        cy.get(RegisterPage.alert_password_blank).should('have.text', dataSignUp.msg_password_do_not_match)
+        cy.url().should('eq', dataSignUp.url_register)
+    })
+})

@@ -1,0 +1,25 @@
+class dashboardPage {
+    btn_dasborad_create_user = ':nth-child(4) > .btn'
+    form_name = '#Name'
+    form_company = '#Company'
+    form_address = '#Address'
+    form_city = '#City'
+    form_phone = '#Phone'
+    form_email = '#Email'
+    btn_create_user = '.col-md-offset-2 > .btn'
+    form_searching = '#searching'
+    btn_searching = '.container > div > form > .btn'
+    column_name = 'tbody > :nth-child(2) > :nth-child(1)'
+    column_email = 'tbody > :nth-child(2) > :nth-child(6)'
+    column_company = 'tbody > :nth-child(2) > :nth-child(2)'
+    column_address = 'tbody > :nth-child(2) > :nth-child(3)'
+    column_city = 'tbody > :nth-child(2) > :nth-child(4)'
+    column_phone = 'tbody > :nth-child(2) > :nth-child(5)'
+    btn_edit = ':nth-child(2) > :nth-child(7) > .btn-outline-primary'
+    btn_details = ':nth-child(2) > :nth-child(7) > .btn-outline-info'
+    btn_link = '.btn-link'
+    btn_delete = ':nth-child(2) > :nth-child(7) > .btn-outline-danger'
+    btn_confirm_delete = '[value="Delete"]'   
+}
+
+export default dashboardPage;

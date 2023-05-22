@@ -1,0 +1,23 @@
+{
+    "firstname" : "Aldian",
+    "lastname" : "Karim",
+    "email" : "testaldian1235@gmail.com",
+    "mobile_phone" : "081212121212",
+    "username_valid" : "aldiankrm26",
+    "usernmae_invalid" : "ganteng123",
+    "username_already_exist" : "aldiankrm1",
+    "password_valid" : "123456", 
+    "password_invalid" : "654321",
+    "confirm_password_valid" : "123456",
+    "confirm_password_invalid" : "222222",
+    "url_success_register" : "https://itera-qa.azurewebsites.net/UserRegister/NewUser",
+    "url_register" : "https://itera-qa.azurewebsites.net/UserRegister/NewUser",
+    "base_url" : "https://itera-qa.azurewebsites.net/",
+    "msg_success_register" : "Registration Successful",
+    "msg_username_already_exist" : "Username already exist",
+    "msg_password_do_not_match" : "'Confirm password' and 'Password' do not match.",
+    "msg_firstname_blank" : "Please enter first name",
+    "msg_lastname_blank" : "Please enter surname",
+    "msg_username_blank" : "Please enter username",
+    "msg_password_blank" : "Please enter password"
+}

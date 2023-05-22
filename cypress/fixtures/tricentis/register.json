@@ -1,0 +1,12 @@
+{
+    "firstName": "elvanisa",
+    "lastName": "muhsina",
+    "emailExisted": "elva@gmail.com",
+    "emailNew": "",
+    "passwordValid": "pass12345",
+    "passwordInvalid": "",
+    "confirm_password_valid": "pass12345",
+    "message_email_exist": "The specified email already exists"
+
+
+}

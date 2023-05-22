@@ -1,0 +1,19 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "run-sign-up": "npx cypress run --spec 'cypress/e2e/itera/SignUpCase.cy.js' ",
+    "run-itera": "npx cypress run --spec 'cypress/e2e/itera/*.js' ",
+    "run-login": "npx cypress run --spec 'cypress/e2e/itera/LoginCase.cy.js' "
+  },
+  "author": "aldian karim",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.11.0",
+    "cypress-mochawesome-reporter": "^3.4.0",
+    "cypress-testrail-reporter": "^1.3.4"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "url_create_user" : "https://itera-qa.azurewebsites.net/Customer/Create",
+    "name" : "Aldian Karim",
+    "city" : "Jakarta",
+    "address" : "jln ragunan raya",
+    "company" : "PT. maju mundur",
+    "phone" : "087121547643",
+    "email" : "testaldian1235@gmail.com"
+}
