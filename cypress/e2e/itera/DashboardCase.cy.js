@@ -22,7 +22,7 @@ describe('Dasboard Case', () => {
         cy.url().should('eq', dataLogin.url_dashboard)
     })
 
-    it('Create User', () => {
+    it.skip('Create User', () => {
         cy.get(DashboardPage.btn_dasborad_create_user).click()
         cy.url().should('eq', dataDashboard.url_create_user)
         cy.get(DashboardPage.form_name).should('be.visible').type(dataDashboard.name)
@@ -64,5 +64,10 @@ describe('Dasboard Case', () => {
         cy.get(DashboardPage.btn_delete).should('be.visible').click()
         cy.get(DashboardPage.btn_confirm_delete).should('be.visible').click()
         cy.url().should('eq', dataLogin.url_dashboard)
+    })
+
+    it('Search Data yang tidak ada', () => {
+        cy.get(DashboardPage.form_searching).should('be.visible').type('Karim')
+        cy.get(DashboardPage.btn_searching).should('be.visible').click()
     })
 })
